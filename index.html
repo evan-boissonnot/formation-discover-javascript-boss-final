@@ -23,7 +23,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html" id="Accueil">Accueil <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html" id="Accueil">Accueil <span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="connexion.html" id="Connexion">Connexion</a>
@@ -37,11 +38,36 @@
         </nav>
     </header>
 
-    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <main class="container my-5 mx-auto">
+        <div class="row">
+            <div class="col-sm-5 mx-auto my-5 border bg-light" id="tableau">
+                1
+                <script>
+                    $(document).ready(function () {
+                        $.ajax({
+                            url: "http://ns3055994.ip-193-70-8.eu/selfie-a-wookie-api/api/selfies",
+                            type: "GET",
+
+                            success: function (result) {
+                                //console.log(result);
+                                let html = '';
+
+                                result.forEach(element => {                                    
+                                    html += '<img class="row border border-dark mx-auto my-2 background-color:dark" src=' + element.image.url + ' width="300" mx-auto></img>'; 
+                                    element.comments.forEach(com => { html += '<p class="border border-dark bg-info mx-auto col-sm-6 my-2">' + com.content + '</p>'
+                                       }); 
+                                });
+                                $("#tableau").html(html);
+                            }
+                        })
+                    });
+                </script>
+            </div>
+        </div>
+    </main>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
