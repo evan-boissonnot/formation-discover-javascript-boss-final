@@ -3,7 +3,7 @@ $(document).ready(function () {
     $.ajax({
         url: 'http://ns3055994.ip-193-70-8.eu/selfie-a-wookie-api/api/selfies',
         success: function (result) {
-            console.log(result);
+          
             
             let html = '';
 
@@ -30,24 +30,3 @@ $(document).ready(function () {
   
     
 });
-
-
-
-//      <div class="container" >
-// // <div class="row" id="photo">
-// //     <div class="col-sm-8 profil-title shadow p-3 mb-5 bg-white rounded" ><h2 ></h2>
-// //     <img src="" class="img-fluid" >
-    
-// //     </div>
-// //     <div class="col-sm-4 ">
-// //         <div class="media border rounded">
-// //         <img src="" class="mr-3"  id="img-profil">
-// //         <div class="media-body">
-// //             <h5 class="mt-0"></h5>
-// //         </div>
-            
-// //         </div>
-
-// //     </div>
-// // </div>
-// </div>  
