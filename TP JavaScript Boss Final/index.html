@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Accueil - SelfiWookies</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="node_modules\bootstrap\dist\css\bootstrap.min.css">
+</head>
+
+<body>
+  <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+      <a class="navbar-brand text-secondary" href="#">SelfiW</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Accueil <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Mes duels</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="#recherche" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+  <div class="row my-5">
+    <main class="container-fluid mx-auto my-5" style="text-align:center">
+      <form style="color:forestgreen">Username
+        <input type="text" id="caseNom" name="caseNom"></input>
+        <input class="btn btn-outline-warning" type="button" id="bouton_valider" name="bouton_valider"
+          value="Valider"></input>
+      </form>
+      <div id="contenant"></div>
+      <script>
+        const monBoutton = document.getElementById("bouton_valider");
+        const caseNom = document.getElementById("caseNom");
+
+        function verificationLogin() {
+
+          var monJSON = {
+
+            "wookie":
+            {
+              "nom": "chewie",
+              "taille": 228,
+              "poid": 77,
+            },
+
+            "error":
+              {
+                "name": "usageLimitError",
+                "echecConnection": "<div class=\"text-danger\">Echec de l'authentification</div>",
+                "message": "Usage limit reached. Contact your team admin."
+              },
+          };
+
+          if (caseNom.value == monJSON.wookie.nom) {
+
+            $(document).ready(function () {
+              $.ajax({
+                success: function (result) {
+                  let html = '';
+                  html += '<div class="text-success">' + 'Bienvenue ' + monJSON.wookie.nom + '</div>';
+                  $("#contenant").html(html);
+                  setTimeout(() => {
+                    window.open('duels.html', '_self');
+                  }, 2000);
+                }
+              })
+            });
+
+          } else {
+
+            $(document).ready(function () {
+              $.ajax({
+                success: function (result) {
+                  let html = '';
+                  html += '<div>' + monJSON.error.echecConnection + '</div>';
+                  html += '<div class="text-danger"> Veuillez réessayer ' + caseNom.value + '</div>';
+                  $("#contenant").html(html);
+                }
+              })
+            });
+
+          }
+        }
+
+        monBoutton.addEventListener('click', verificationLogin);
+      </script>
+    </main>
+  </div>
+
+  <footer class="fixed-bottom bg-secondary text-center text-light">(c) Copyright: Yonel TOUSSAY - Tous droits réservés
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

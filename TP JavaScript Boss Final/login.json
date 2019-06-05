@@ -1,0 +1,25 @@
+
+{
+    "wookie":
+    {
+       "results": [
+        {
+            "name": "Luke Skywalker", 
+            "height": "172", 
+            "mass": "77"
+        }]
+    },
+
+    "error":
+    {
+       "name": "usageLimitError",
+       "message": "Usage limit reached. Contact your team admin."
+    },
+
+    "name":
+    {
+       "namesd": "usageLimitError",
+       "messasdsge": "Usage limit reached. Contact your team admin."
+    }
+
+}
