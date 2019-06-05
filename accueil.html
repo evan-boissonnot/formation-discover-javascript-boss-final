@@ -9,10 +9,11 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Selfie-Wookie</title>
+    <title>Accueil - Selfie-Wookie</title>
 </head>
 
 <body>
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <h1><a class="navbar-brand" href="accueil.html">Selfie-Wookie</a></h1>
@@ -33,18 +34,15 @@
         </nav>
     </header>
 
-    <main class="container">
+    <main class="container mt-5 text-dark">
 
-        <div id="container" class="row text-center p-5 bg-white">
+        <div id="container" class="row text-center p-5 bg-light rounded border">
             <!-- contient la grille d'affichage des wookies -->
         </div>
 
     </main>
 
-    <footer>
-        <small>Selfie-Wookie. Tous droits réservés.</small>
-    </footer>
-
+    <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -54,6 +52,12 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="js/script.js"></script>
+    <script>
+        $(document).ready(function() {
+            getAPIWookiesContent();
+        });
+    </script>
+    
 </body>
 
 </html>
