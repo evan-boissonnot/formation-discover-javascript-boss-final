@@ -9,18 +9,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <style>
-        
-        #form{
-            margin-top: 90px; 
+    <style>
+        #form {
+            margin-top: 90px;
         }
-        
-        </style>
+    </style>
 </head>
 
 <body>
 
-    <header >
+    <header>
 
         <nav class="navbar navbar-expand-lg navbar-dark  bg-warning fixed-top">
             <a class="navbar-brand" href="#">
@@ -33,33 +31,73 @@
         </nav>
     </header>
 
-    <div class="container-fluid text-center mt-5 " >
-            <div class="row">
-                <form class="col-sm-4 mx-auto border shadow p-3 mb-5 bg-white rounded" method="POST" id="form" action="index.html">
-                    <div class="form-group">
-                        <label for="prenom">identifiant</label>
-                        <input type="text" class="form-control" id="identifiant" aria-describedby="identifiant" placeholder="identifiant" name="identifiant">
-                    </div>
-                    <div class="form-group">
-                        <label for="motDePasse">Mot de passe</label>
-                        <input type="password" class="form-control" id="motDePasse" placeholder="Mot de passe" name="motDePasse">
-                    </div>
-                    <input type="submit" class="btn btn-outline-warning" id="bouton" value="Envoyer">
-                </form>
-            </div>
+    <div class="container-fluid text-center mt-5 ">
+        <div class="row">
+            <form class="col-sm-4 mx-auto border shadow p-3 mb-5 bg-white rounded" method="POST" id="form"
+                action="index.html">
+                <div class="form-group">
+                    <label for="prenom">identifiant</label>
+                    <input type="text" class="form-control" id="identifiant" aria-describedby="identifiant"
+                        placeholder="identifiant" name="identifiant" id="identifiant">
+                </div>
+                <div class="form-group">
+                    <label for="motDePasse">Mot de passe</label>
+                    <input type="password" class="form-control" id="motDePasse" placeholder="Mot de passe"
+                        name="motDePasse">
+                </div>
+                <div id="message"></div>
+                <input type="submit" class="btn btn-outline-warning" id="bouton" value="Envoyer">
+            </form>
         </div>
+    </div>
 
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+            
+            let identifiantValide; 
+            let html = ''; 
+
+            $.ajax({
+                url: 'http://ns3055994.ip-193-70-8.eu/selfie-a-wookie-api/Api/session',
+                success: function (result) {
+                    identifiantValide = result.item.surname; 
+                    console.log(identifiantValide); 
+                    
+                }
+            });
+
+                $('#bouton').click(function (event) {
+                   
+                    let identifiantSaisi = $('#identifiant').val();
+                                   
+                    if(identifiantSaisi !== identifiantValide){
+                        event.preventDefault(); 
+                        html += '<div class="text-danger"><p>L\'identfiant n\'est pas valide</p></div>'
+                        $('#message').html(html);
+                                                
+                    } 
+                       
+                        
+                       
+                                       
+              });
+        });
+
+
+    </script>
+
 </body>
 
 </html>
