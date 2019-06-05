@@ -1,0 +1,10 @@
+body {
+    height: 100vh;
+    background-image: url("../img/bg_kashyyyk.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+img {
+    width: 100%;
+}
