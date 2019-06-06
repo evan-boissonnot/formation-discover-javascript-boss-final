@@ -15,8 +15,8 @@ function ajaxPagePrincipale() {
             '"class="img-fluid col-sm-12 " ></img>' +
             "<div><h3>commentaires</h3><div>";
           element.comments.forEach(element2 => {
-            let dateAffichage = new Date(element2.date.slice(0, 10));
-            let format = { year: "numeric", month: "long", day: "numeric" };
+            let dateAffichage = new Date(element2.date);
+            let format =  {year: "numeric", month: "long", day: "numeric" };
 
             html +=
               '<div class="shadow-sm mb-3 bg-light rounded"><div><strong>' +
