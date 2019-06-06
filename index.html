@@ -18,10 +18,11 @@
       <img class="mx-auto" src="banner1.jpg" alt="banniere-chewbacca">
     </div>
     <div class="mx-auto mt-5" style="width: 200px;">
-      <form action=" main.html" method="post">
+      <h1>Veuillez vous identifier</h1>
+      <form method="post">
         <div class="form-group row">
           <label for="user"> Nom d'utilisateur :
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" id="username">
 
           </label>
         </div>
@@ -32,15 +33,37 @@
 
 
         </div>
-        <button type="submit" class="btn btn-success">Se connecter</button>
+        <button class="btn btn-success" id="sendForm">Se connecter</button>
       </form>
     </div>
 
+
     <script>
       $(document).ready(function () {
-        console.log("all ok");
+        $.ajax({
+          url: 'https://a38acc3c-84d6-4186-87db-ef6e93d0bce1.mock.pstmn.io/session',
+          type: "GET",
+
+          success: function (res) {
+            const obj = res.item.surname;
+            const listener = document.getElementById("sendForm");
+
+            function onClick(event) {
+              if (document.getElementById('username').value == obj) {
+                event.preventDefault();
+                window.location.href("main.html");
+              } else {
+                alert('Erreur, veuillez renseigner un nom d\'utilisateur valide.');
+              }
+
+            }
+            listener.addEventListener('click', onClick);
+          }
+        });
 
       });
+
+
     </script>
 
 
