@@ -1,0 +1,6 @@
+1) Mettre toutes les images des Wookies dans la page "Mes duels"
+
+3) Quand on click sur 2 images en fonction de leurs notes dire qui a gagné le duels
+
+2) Modifier la page d'accueil:
+ - mettre login/password? / fichier: session.json? //au pire deux input="text" et un "bouton"

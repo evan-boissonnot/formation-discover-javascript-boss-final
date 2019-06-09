@@ -1,0 +1,9 @@
+{
+    "status": "OK",
+    "isSuccess": true,
+    "item": {
+        "id": 1,
+        "surname": "Wookie",
+        "size": 300.0
+    }
+}
