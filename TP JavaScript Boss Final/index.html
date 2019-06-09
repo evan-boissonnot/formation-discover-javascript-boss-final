@@ -16,7 +16,7 @@
 <body>
   <header class="fixed-top">
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-      <a class="navbar-brand text-secondary" href="#">SelfiW</a>
+      <a class="navbar-brand text-secondary" href="#"><Strong>SelfiW</Strong></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
             <a class="nav-link" href="index.html">Accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Mes duels</a>
+            <a class="nav-link" href="duels.html">Mes duels</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -42,72 +42,18 @@
   <div class="row my-5">
     <main class="container-fluid mx-auto my-5" style="text-align:center">
       <form style="color:forestgreen">Username
-        <input type="text" id="caseNom" name="caseNom"></input>
+        <input type="text" id="caseNom" name="caseNom" placeholder = "Entrez votre nom"></input>
         <input class="btn btn-outline-warning" type="button" id="bouton_valider" name="bouton_valider"
           value="Valider"></input>
       </form>
       <div id="contenant"></div>
-      <script>
-        const monBoutton = document.getElementById("bouton_valider");
-        const caseNom = document.getElementById("caseNom");
 
-        function verificationLogin() {
-
-          var monJSON = {
-
-            "wookie":
-            {
-              "nom": "chewie",
-              "taille": 228,
-              "poid": 77,
-            },
-
-            "error":
-              {
-                "name": "usageLimitError",
-                "echecConnection": "<div class=\"text-danger\">Echec de l'authentification</div>",
-                "message": "Usage limit reached. Contact your team admin."
-              },
-          };
-
-          if (caseNom.value == monJSON.wookie.nom) {
-
-            $(document).ready(function () {
-              $.ajax({
-                success: function (result) {
-                  let html = '';
-                  html += '<div class="text-success">' + 'Bienvenue ' + monJSON.wookie.nom + '</div>';
-                  $("#contenant").html(html);
-                  setTimeout(() => {
-                    window.open('duels.html', '_self');
-                  }, 2000);
-                }
-              })
-            });
-
-          } else {
-
-            $(document).ready(function () {
-              $.ajax({
-                success: function (result) {
-                  let html = '';
-                  html += '<div>' + monJSON.error.echecConnection + '</div>';
-                  html += '<div class="text-danger"> Veuillez réessayer ' + caseNom.value + '</div>';
-                  $("#contenant").html(html);
-                }
-              })
-            });
-
-          }
-        }
-
-        monBoutton.addEventListener('click', verificationLogin);
-      </script>
     </main>
   </div>
 
   <footer class="fixed-bottom bg-secondary text-center text-light">(c) Copyright: Yonel TOUSSAY - Tous droits réservés
   </footer>
+  <script src="main.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
