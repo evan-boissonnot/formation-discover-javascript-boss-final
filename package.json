@@ -1,0 +1,22 @@
+{
+  "name": "formation-discover-javascript-boss-final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gPierre56/formation-discover-javascript-boss-final.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gPierre56/formation-discover-javascript-boss-final/issues"
+  },
+  "homepage": "https://github.com/gPierre56/formation-discover-javascript-boss-final#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
+}
