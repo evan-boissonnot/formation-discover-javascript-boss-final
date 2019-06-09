@@ -1,7 +1,8 @@
 class Wookie {
 
-    constructor(id, date, name, image, comments) {
+    constructor(id, title, date, name, image, comments) {
         this.id = id;
+        this.title = title;
         this.date = date;
         this.name = name;
         this.image = image;
@@ -14,6 +15,14 @@ class Wookie {
 
     set idwookie (id) {
         this.id = id;
+    }
+
+    get selfieTitle() {
+        return this.selfieTitle;
+    }
+
+    set selfieTitle (title) {
+        this.selfieTitle = selfieTitle;
     }
 
     get dateselfie () {
